@@ -1,10 +1,10 @@
 import glass from './glass.jpg';
-import grass from './grass.jpg';
+import dirt from './dirt.jpg';
 import log from './log.jpg';
 import wood from './wood.jpg';
+import grass from './grass.jpg'
 
-const images = {
-    dirst, glass, grass, log, wood
+export {
+    dirt, glass, grass, log, wood
 }
 
-export default images;
