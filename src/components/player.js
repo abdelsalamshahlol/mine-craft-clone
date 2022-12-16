@@ -30,12 +30,12 @@ const Player = () => {
 
         // Movement logic
         const directions = new Vector3();
-        const xVector = new Vector3((actions.moveLeft ? 1 : 0) - (actions.moveRight ? 1 : 0), 0, 0);
+        const xVector = new Vector3((actions.moveRight ? 1 : 0) - (actions.moveLeft ? 1 : 0), 0, 0);
         const zVector = new Vector3(0, 0, (actions.moveForward ? 1 : 0) - (actions.moveBackward ? 1 : 0));
 
         directions.subVectors(xVector, zVector,).normalize().multiplyScalar(SPEED).applyEuler(camera.rotation);
 
-        api.velocity.set(-directions.x, velocity.current[1], directions.z);
+        api.velocity.set(directions.x, velocity.current[1], directions.z);
     });
 
     return (<mesh ref={ref}></mesh>)
