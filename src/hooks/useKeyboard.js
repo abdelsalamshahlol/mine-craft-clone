@@ -11,11 +11,11 @@ const useKeyboard = () => {
         moveRight: false,
         jump: false,
         // textures
-        t1: false,
-        t2: false,
-        t3: false,
-        t4: false,
-        t5: false,
+        dirt: false,
+        glass: false,
+        grass: false,
+        log: false,
+        wood: false,
     });
 
     const handleKey = useCallback((e) => {

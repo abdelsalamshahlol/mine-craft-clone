@@ -6,10 +6,12 @@ import Ground from './components/ground';
 import Player from './components/player';
 import View from './components/view';
 import Cubes from './components/cubes';
+import TextureSelector from "./components/textureSelector";
 
 function App() {
     return (
         <div className="h-full">
+            <TextureSelector/>
             <Canvas>
                 <Sky sunPosition={[100, 100, 20]}/>
                 <ambientLight intensity={0.5}/>
