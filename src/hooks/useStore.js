@@ -1,9 +1,10 @@
 import create from "zustand";
 import {nanoid} from "nanoid";
 
+const localValue = localStorage.getItem('--minecraft-clone');
 const useStore = create((set) => ({
     texture: 'dirt',
-    cubes: [],
+    cubes: localValue ? JSON.parse(localValue) : [],
     addCube: (x, y, z) => {
         set((prev) => ({
             ...prev,
@@ -31,8 +32,19 @@ const useStore = create((set) => ({
         }))
     },
     saveWorld: () => {
+        set((state) => {
+            localStorage.setItem('--minecraft-clone', JSON.stringify(state.cubes));
+            return state;
+        })
     },
     resetWorld: () => {
+        set((state) => {
+            localStorage.setItem('--minecraft-clone', JSON.stringify([]));
+            return ({
+                ...state,
+                cubes: []
+            });
+        })
     },
 }))
 
