@@ -7,7 +7,9 @@ import {JUMP_VELOCITY, SPEED} from '../assets/const'
 
 const Player = () => {
     const [ref, api] = useSphere(() => ({
-        position: [0, 1, 0], type: 'Dynamic', mass: 1
+        position: [0, 1, 0],
+        type: 'Dynamic',
+        mass: 1
     }));
     const {camera} = useThree();
     const actions = useKeyboard();
@@ -23,10 +25,6 @@ const Player = () => {
     useFrame(() => {
         camera.position.copy(new Vector3(position.current[0], position.current[1], position.current[2]));
 
-        // Check the pressed key and also check if the chatacter isn't jumping before inititating a jump
-        if (actions.jump && Math.abs(velocity.current[1]) < 0.05) {
-            api.velocity.set(velocity.current[0], JUMP_VELOCITY, velocity.current[2]);
-        }
 
         // Movement logic
         const directions = new Vector3();
@@ -36,6 +34,12 @@ const Player = () => {
         directions.subVectors(xVector, zVector).normalize().multiplyScalar(SPEED).applyEuler(camera.rotation);
 
         api.velocity.set(directions.x, velocity.current[1], directions.z);
+
+        // Check the pressed key and also check if the chatacter isn't jumping before inititating a jump
+        if (actions.jump && Math.abs(velocity.current[1]) < 0.05) {
+            api.velocity.set(velocity.current[0], JUMP_VELOCITY, velocity.current[2]);
+        }
+
     });
 
     return (<mesh ref={ref}></mesh>)

@@ -1,4 +1,4 @@
-import glass from './glass.jpg';
+import glass from './glass.png';
 import dirt from './dirt.jpg';
 import log from './log.jpg';
 import wood from './wood.jpg';
