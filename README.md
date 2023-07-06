@@ -10,7 +10,7 @@ on [FCC Tutorial](https://www.freecodecamp.org/news/code-a-minecraft-clone-using
 | Key               | Description              |
 |-------------------|--------------------------|
 | Numbers 1-5       | Choose building material |
-| Arrows            | Control the character    |
+| Arrows (ASWD)     | Control the character    |
 | Space bar         | Jump                     |
 | Esc               | Enable mouse cursor      |
 | Mouse right click | Build                    |
